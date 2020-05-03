@@ -10,5 +10,5 @@ import (
 func GetUsers(resp http.ResponseWriter, req *http.Request) {
 
 	users := service.GetUsers()
-	resp.Write([]byte("Usuario X"))
+	resp.Write(users)
 }
