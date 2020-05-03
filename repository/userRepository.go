@@ -1,10 +1,11 @@
 package repository
 
 import (
-	"errors"
+	"net/http"
 	"time"
 
 	"github.com/mvgv/users-service/model"
+	"github.com/mvgv/users-service/validation"
 )
 
 var (
@@ -16,10 +17,13 @@ var (
 )
 
 /*GetUserByID implementa busca um usuario pelo seu id*/
-func GetUserByID(userID uint64) (*model.User, error) {
+func GetUserByID(userID uint64) (*model.User, *validation.ApplicationError) {
 	user := selectedUser[userID]
 	if user == nil {
-		return nil, errors.New("user not found")
+		return nil, &validation.ApplicationError{
+			Message:    "User not found",
+			StatusCode: http.StatusNotFound,
+		}
 	}
 	return user, nil
 }
