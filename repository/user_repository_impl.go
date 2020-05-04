@@ -10,7 +10,7 @@ import (
 
 var (
 	selectedUser = map[uint64]*model.User{
-		123: &model.User{1, "Marcus", "Grilo", 0, time.Now(), time.Now(),
+		123: &model.User{123, "Marcus", "Grilo", 0, time.Now(), time.Now(),
 			time.Now(), "https://www.avatar.com.br/avat.png",
 			"ADMIN", "Gundam Pilot", "Assinatura dahora", "mvgv1989@gmail.com", "ATIVO", "aweqweq1"},
 	}
