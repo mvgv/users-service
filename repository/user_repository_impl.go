@@ -14,10 +14,19 @@ var (
 			time.Now(), "https://www.avatar.com.br/avat.png",
 			"ADMIN", "Gundam Pilot", "Assinatura dahora", "mvgv1989@gmail.com", "ATIVO", "aweqweq1"},
 	}
+
+	/*UserRepositoryImpl expoe a implementacao do repository para outros pacotes*/
+	UserRepositoryImpl UserRepository
 )
 
+func init() {
+	UserRepositoryImpl = &userRepositoryImpl{}
+}
+
+type userRepositoryImpl struct{}
+
 /*GetUserByID implementa busca um usuario pelo seu id*/
-func GetUserByID(userID uint64) (*model.User, *validation.ApplicationError) {
+func (userRepository *userRepositoryImpl) GetUserByID(userID uint64) (*model.User, *validation.ApplicationError) {
 	user := selectedUser[userID]
 	if user == nil {
 		return nil, &validation.ApplicationError{
