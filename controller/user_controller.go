@@ -31,3 +31,15 @@ func GetUser(context *gin.Context) {
 
 	context.JSON(http.StatusOK, user)
 }
+
+/*GetUsers é reponsavel por detalhar um usuario da lista de usuários do sistema*/
+func GetUsers(context *gin.Context) {
+
+	user, userErr := service.UserServiceImpl.GetUsers()
+	if userErr != nil {
+		context.JSON(userErr.StatusCode, userErr)
+		return
+	}
+
+	context.JSON(http.StatusOK, user)
+}

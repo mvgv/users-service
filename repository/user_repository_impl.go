@@ -15,6 +15,7 @@ var (
 			"ADMIN", "Gundam Pilot", "Assinatura dahora", "mvgv1989@gmail.com", "ATIVO", "aweqweq1"},
 	}
 
+	selectedUsers = []*model.User{selectedUser[123]}
 	/*UserRepositoryImpl expoe a implementacao do repository para outros pacotes*/
 	UserRepositoryImpl UserRepository
 )
@@ -35,4 +36,8 @@ func (userRepository *userRepositoryImpl) GetUserByID(userID uint64) (*model.Use
 		}
 	}
 	return user, nil
+}
+
+func (userRepository *userRepositoryImpl) GetUsers() (*[]*model.User, *validation.ApplicationError) {
+	return &selectedUsers, nil
 }

@@ -14,6 +14,7 @@ func init() {
 }
 
 func urlMapping() {
+	router.GET("/users", controller.GetUsers)
 	router.GET("/users/:user_id", controller.GetUser)
 }
 

@@ -18,8 +18,8 @@ func init() {
 }
 
 /*GetUsers servico de negocio para listar usuarios*/
-func (userServiceImpl *userServiceImpl) GetUsers() []model.User {
-	return []model.User{}
+func (userServiceImpl *userServiceImpl) GetUsers() (*[]*model.User, *validation.ApplicationError) {
+	return repository.UserRepositoryImpl.GetUsers()
 }
 
 /*GetUser servico de negocio para detalhar um usuario*/

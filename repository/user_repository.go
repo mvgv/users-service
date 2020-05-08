@@ -8,4 +8,5 @@ import (
 /*UserRepository define a interface de acesso a base de clientes*/
 type UserRepository interface {
 	GetUserByID(userID uint64) (*model.User, *validation.ApplicationError)
+	GetUsers() (*[]*model.User, *validation.ApplicationError)
 }
